@@ -50,7 +50,7 @@ public class HanLPTest {
 	
 	@Test
 	public void TestC() throws Exception{
-		ModelProcess query = new ModelProcess("D:/HanLP/data");
+		ModelProcess query = new ModelProcess("/Users/fangli/data");
 		String[] questionArr = new String[] {"卧虎藏龙的分数是多少"};		
 		for(String que: questionArr){
 				ArrayList<String> question = query.analyQuery(que);

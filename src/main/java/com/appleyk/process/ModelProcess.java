@@ -56,7 +56,7 @@ public class ModelProcess {
 	/**
 	 * 指定问题question及字典的txt模板所在的根目录
 	 */
-    String rootDirPath = "D:/HanLP/data";
+    String rootDirPath = "/Users/fangli/data";
     
     /**
      * 分类模板索引
