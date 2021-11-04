@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.appleyk.node.Genre;
+import com.appleyk.model.Genre;
 import com.appleyk.repository.GenreRepository;
 import com.appleyk.result.ResponseMessage;
 import com.appleyk.result.ResponseResult;
@@ -17,29 +17,28 @@ import com.appleyk.result.ResponseResult;
 @RestController
 @RequestMapping("/rest/appleyk/genre")
 public class GenreController {
-	
+
 	@Autowired
-	GenreRepository genreRepository;  
-	
+	GenreRepository genreRepository;
 
 	/**
 	 * 根据类型名查询Genre实体
-	 * @param title
+	 * @param name 名称
 	 * @return
 	 */
-    @RequestMapping("/get")  
-    public List<Genre> getGenres(@RequestParam(value="name") String name){             
-    	return genreRepository.findByName(name); 	
-    }  
-      
-    /**
-     * 创建一个电影类型节点
-     * @param genre
-     * @return
-     */
-    @PostMapping("/save")  
-    public ResponseResult saveGenre(@RequestBody Genre genre){      	
-    	genreRepository.save(genre);
-    	return new ResponseResult(ResponseMessage.OK);
-    }  
+	@RequestMapping("/get")
+	public List<Genre> getGenres(@RequestParam(value="name") String name){
+		return genreRepository.findByName(name);
+	}
+
+	/**
+	 * 创建一个电影类型节点
+	 * @param genre 类别
+	 * @return
+	 */
+	@PostMapping("/save")
+	public ResponseResult saveGenre(@RequestBody Genre genre){
+		genreRepository.save(genre);
+		return new ResponseResult(ResponseMessage.OK);
+	}
 }
